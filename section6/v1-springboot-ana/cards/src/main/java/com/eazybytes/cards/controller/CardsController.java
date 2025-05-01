@@ -1,6 +1,7 @@
 package com.eazybytes.cards.controller;
 
 import com.eazybytes.cards.constants.CardsConstants;
+import com.eazybytes.cards.dto.CardsContactInfoDto;
 import com.eazybytes.cards.dto.CardsDto;
 import com.eazybytes.cards.dto.ErrorResponseDto;
 import com.eazybytes.cards.dto.ResponseDto;
@@ -47,6 +48,9 @@ public class CardsController {
 
     @Autowired
     private Environment environment;
+
+    @Autowired
+    private CardsContactInfoDto cardsContactInfoDto;
 
     @Operation(
             summary = "Create Card REST API",
@@ -175,7 +179,7 @@ public class CardsController {
 
     @Operation(
             summary = "Get build information",
-            description = "Get Build version that is deployed into accounts microservice"
+            description = "Get Build version that is deployed into cards microservice"
     )
     @ApiResponses({
             @ApiResponse(
@@ -197,7 +201,7 @@ public class CardsController {
 
     @Operation(
             summary = "Get Java version",
-            description = "Get Java version that is running accounts microservice"
+            description = "Get Java version that is running cards microservice"
     )
     @ApiResponses({
             @ApiResponse(
@@ -218,4 +222,26 @@ public class CardsController {
         return ResponseEntity.status(HttpStatus.OK).body(environment.getProperty("JAVA_HOME"));
     }
 
+    @Operation(
+            summary = "Get Contact info",
+            description = "Get Contact info of cards microservice"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
+    }
+    )
+    @GetMapping("/contact-info")
+    public ResponseEntity<CardsContactInfoDto> getContactInfo() {
+        return ResponseEntity.status(HttpStatus.OK).body(cardsContactInfoDto);
+    }
 }

@@ -1,13 +1,13 @@
-package com.eazybytes.edgeserver;
+package com.eazybytes.gatewayserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class EdgeserverApplication {
+public class GatewayserverApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EdgeserverApplication.class, args);
+		SpringApplication.run(GatewayserverApplication.class, args);
 	}
 
 }

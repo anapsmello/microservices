@@ -20,6 +20,10 @@ spring:
     show-sql: true
   config:
     import: "optional:configserver:http://localhost:8071/"
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enabled: true
 
 management:
   endpoints:
@@ -62,3 +66,14 @@ logging:
     com:
       eazybytes:
         accounts: DEBUG
+
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      #monitorar ao menos 10 requisições antes de abrir o circuito
+      slidingWindowSize: 10
+      permittedNumberOfCallsInHalfOpenState: 2
+      # porcentagem de requisições com erro necessárias para abrir o circuito
+      failureRateThreshold: 50
+      # tempo necessário para passar de aberto para semi-aberto. 10.000ms (10s)
+      waitDurationInOpenState: 10000

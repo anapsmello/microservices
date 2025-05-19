@@ -1,7 +1,6 @@
-package com.eazybytes.accounts.service.impl;
+package com.eazybytes.accounts.service.client;
 
 import com.eazybytes.accounts.dto.LoansDto;
-import com.eazybytes.accounts.service.LoansFeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 

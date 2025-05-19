@@ -1,7 +1,6 @@
-package com.eazybytes.accounts.service;
+package com.eazybytes.accounts.service.client;
 
 import com.eazybytes.accounts.dto.LoansDto;
-import com.eazybytes.accounts.service.impl.LoansFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

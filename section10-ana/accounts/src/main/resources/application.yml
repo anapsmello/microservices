@@ -91,3 +91,13 @@ resilience4j.retry:
       # retryExceptions fará com que todas as outras exceções sejam ignoradas (ignoreExceptions não precisa ser utilizada)
       retryExceptions:
         - java.util.concurrent.TimeoutException
+
+resilience4j.ratelimiter:
+  configs:
+    default:
+      # timeoutDuration = tempo que uma thread aguarda até a cota ser renovada
+      timeoutDuration: 1000
+      # limitRefreshPeriod  = tempo para renovação da cota
+      limitRefreshPeriod: 5000
+      # limitForPeriod = cotas por período
+      limitForPeriod: 1

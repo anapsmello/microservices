@@ -77,3 +77,17 @@ resilience4j.circuitbreaker:
       failureRateThreshold: 50
       # tempo necessário para passar de aberto para semi-aberto. 10.000ms (10s)
       waitDurationInOpenState: 10000
+
+resilience4j.retry:
+  configs:
+    default:
+      maxAttempts: 3
+      # waitDuration = tempo entre cada tentativa. maxAttempts * waitDuration precisa ser menor que o timelimiter do circuit breaker
+      waitDuration: 500
+      enableExponentialBackoff: true
+      exponentialBackoffMultiplier: 2
+      ignoreExceptions:
+        - java.lang.NullPointerException
+      # retryExceptions fará com que todas as outras exceções sejam ignoradas (ignoreExceptions não precisa ser utilizada)
+      retryExceptions:
+        - java.util.concurrent.TimeoutException

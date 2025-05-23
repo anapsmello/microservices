@@ -1,6 +1,6 @@
 services:
   configserver:
-    image: "anapaulam/configserver:s10"
+    image: "anapaulam/configserver:s11"
     container_name: configserver-ms
     ports:
       - "8071:8071"
@@ -15,7 +15,7 @@ services:
       service: microservice-base-config
 
   eurekaserver:
-    image: "anapaulam/eurekaserver:s10"
+    image: "anapaulam/eurekaserver:s11"
     container_name: eurekaserver-ms
     ports:
       - "8070:8070"
@@ -32,7 +32,7 @@ services:
       SPRING_APPLICATION_NAME: "eurekaserver"
 
   accounts:
-    image: "anapaulam/accounts:s10"
+    image: "anapaulam/accounts:s1"
     container_name: accounts-ms
     ports:
       - "8080:8080"
@@ -52,7 +52,7 @@ services:
       service: microservice-eureka-config
 
   loans:
-    image: "anapaulam/loans:s10"
+    image: "anapaulam/loans:s11"
     container_name: loans-ms
     ports:
       - "8090:8090"
@@ -73,7 +73,7 @@ services:
 
 
   cards:
-    image: "anapaulam/cards:s10"
+    image: "anapaulam/cards:s11"
     container_name: cards-ms
     ports:
       - "9000:9000"
@@ -93,7 +93,7 @@ services:
       service: microservice-eureka-config
 
   gatewayserver:
-    image: "anapaulam/gatewayserver:s10"
+    image: "anapaulam/gatewayserver:s11"
     container_name: gatewayserver-ms
     ports:
       - "8072:8072"

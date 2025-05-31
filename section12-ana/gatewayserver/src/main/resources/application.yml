@@ -20,8 +20,9 @@ spring:
       timeout: 1s
   security:
     oauth2:
-      jwt:
-        jwk-set-uri: "http://localhost:7080/realms/master/protocol/openid-connect/certs"
+      resourceserver:
+        jwt:
+          jwk-set-uri: "http://localhost:7080/realms/master/protocol/openid-connect/certs"
 management:
   endpoints:
     web:

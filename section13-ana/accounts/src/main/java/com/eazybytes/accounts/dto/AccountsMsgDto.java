@@ -1,4 +1,4 @@
-package com.example.message.dto;
+package com.eazybytes.accounts.dto;
 
 public record AccountsMsgDto(Long accountNumber, String name, String email, String mobileNumber) {
 }

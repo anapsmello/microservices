@@ -244,7 +244,7 @@ services:
       service: network-deploy-service
 
   configserver:
-    image: "anapaulam/configserver:s13"
+    image: "anapaulam/configserver:s14"
     container_name: configserver-ms
     ports:
       - "8071:8071"
@@ -261,7 +261,7 @@ services:
       OTEL_SERVICE_NAME: "configserver"
 
   eurekaserver:
-    image: "anapaulam/eurekaserver:s13"
+    image: "anapaulam/eurekaserver:s14"
     container_name: eurekaserver-ms
     ports:
       - "8070:8070"
@@ -279,7 +279,7 @@ services:
       OTEL_SERVICE_NAME: "eurekaserver"
 
   accounts:
-    image: "anapaulam/accounts:s13"
+    image: "anapaulam/accounts:s14"
     container_name: accounts-ms
     healthcheck:
       test: "curl --fail --silent localhost:8080/actuator/health/readiness | grep UP || exit 1"
@@ -299,7 +299,7 @@ services:
       service: microservice-eureka-config
 
   loans:
-    image: "anapaulam/loans:s13"
+    image: "anapaulam/loans:s14"
     container_name: loans-ms
     healthcheck:
       test: "curl --fail --silent localhost:8090/actuator/health/readiness | grep UP || exit 1"
@@ -319,7 +319,7 @@ services:
 
 
   cards:
-    image: "anapaulam/cards:s13"
+    image: "anapaulam/cards:s14"
     container_name: cards-ms
     healthcheck:
       test: "curl --fail --silent localhost:9000/actuator/health/readiness | grep UP || exit 1"
@@ -338,7 +338,7 @@ services:
       service: microservice-eureka-config
 
   message:
-    image: "anapaulam/message:s13"
+    image: "anapaulam/message:s14"
     container_name: message-ms
     depends_on:
       rabbit:
@@ -350,7 +350,7 @@ services:
       service: network-deploy-service
 
   gatewayserver:
-    image: "anapaulam/gatewayserver:s13"
+    image: "anapaulam/gatewayserver:s14"
     container_name: gatewayserver-ms
     ports:
       - "8072:8072"

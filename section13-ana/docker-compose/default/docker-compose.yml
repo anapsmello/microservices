@@ -13,7 +13,7 @@ services:
       service: network-deploy-service
 
   configserver:
-    image: "anapaulam/configserver:s12"
+    image: "anapaulam/configserver:s13"
     container_name: configserver-ms
     ports:
       - "8071:8071"
@@ -28,7 +28,7 @@ services:
       service: microservice-base-config
 
   eurekaserver:
-    image: "anapaulam/eurekaserver:s12"
+    image: "anapaulam/eurekaserver:s13"
     container_name: eurekaserver-ms
     ports:
       - "8070:8070"
@@ -45,7 +45,7 @@ services:
       SPRING_APPLICATION_NAME: "eurekaserver"
 
   accounts:
-    image: "anapaulam/accounts:s12"
+    image: "anapaulam/accounts:s13"
     container_name: accounts-ms
     healthcheck:
       test: "curl --fail --silent localhost:8080/actuator/health/readiness | grep UP || exit 1"
@@ -63,7 +63,7 @@ services:
       service: microservice-eureka-config
 
   loans:
-    image: "anapaulam/loans:s12"
+    image: "anapaulam/loans:s13"
     container_name: loans-ms
     healthcheck:
       test: "curl --fail --silent localhost:8090/actuator/health/readiness | grep UP || exit 1"
@@ -82,7 +82,7 @@ services:
 
 
   cards:
-    image: "anapaulam/cards:s12"
+    image: "anapaulam/cards:s13"
     container_name: cards-ms
     healthcheck:
       test: "curl --fail --silent localhost:9000/actuator/health/readiness | grep UP || exit 1"
@@ -100,7 +100,7 @@ services:
       service: microservice-eureka-config
 
   gatewayserver:
-    image: "anapaulam/gatewayserver:s12"
+    image: "anapaulam/gatewayserver:s13"
     container_name: gatewayserver-ms
     ports:
       - "8072:8072"
